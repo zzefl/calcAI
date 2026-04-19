@@ -1,0 +1,75 @@
+﻿<Window x:Class="calcAI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="calcAI Modern" Height="550" Width="380"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown" Background="#121212">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1E1E1E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="HistoryLabel" Grid.Row="0" TextAlignment="Right" 
+                   Foreground="#757575" FontSize="16" Height="30" Margin="0,0,10,0"/>
+
+        <TextBox x:Name="Display" Grid.Row="1" Text="0" TextAlignment="Right" 
+                 FontSize="54" Background="Transparent" Foreground="White" 
+                 BorderThickness="0" IsReadOnly="True" Margin="0,0,0,20"/>
+
+        <UniformGrid Grid.Row="2" Columns="4">
+            <Button Content="C" Background="#CF6679" Click="Btn_Click"/>
+            <Button Content="√" Background="#3700B3" Click="Btn_Click"/>
+            <Button Content="/" Background="#FF9500" Click="Btn_Click"/>
+            <Button Content="*" Background="#FF9500" Click="Btn_Click"/>
+
+            <Button Content="7" Click="Btn_Click"/>
+            <Button Content="8" Click="Btn_Click"/>
+            <Button Content="9" Click="Btn_Click"/>
+            <Button Content="-" Background="#FF9500" Click="Btn_Click"/>
+
+            <Button Content="4" Click="Btn_Click"/>
+            <Button Content="5" Click="Btn_Click"/>
+            <Button Content="6" Click="Btn_Click"/>
+            <Button Content="+" Background="#FF9500" Click="Btn_Click"/>
+
+            <Button Content="1" Click="Btn_Click"/>
+            <Button Content="2" Click="Btn_Click"/>
+            <Button Content="3" Click="Btn_Click"/>
+            <Button Content="=" Background="#03DAC6" Foreground="Black" Click="Btn_Click"/>
+
+            <Button Content="0" Click="Btn_Click"/>
+            <Button Content="." Click="Btn_Click"/>
+        </UniformGrid>
+    </Grid>
+</Window>
